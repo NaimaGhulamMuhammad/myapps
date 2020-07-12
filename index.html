@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body id="mainbody" class="dark">
+    <!-- NavBar -->
+    <center>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Change Theme
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#" onclick="lightTheme(' bg-light', ' lightcalc','black')">Light theme</a>
+                      <a class="dropdown-item" href="#" onclick="lightTheme('dark', 'Calculator','white')" >Dark Theme</a>
+                      
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Change Calculator
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="index.html" onclick="">Calculator</a>
+                      <a class="dropdown-item" href="#" onclick="">Converter</a>
+                      <a class="dropdown-item" href="#" onclick="">Table Generator</a>
+                      
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="stop watch.htm">Stop Watch</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+
+    <div id="main" class="Calculator">
+        <h1 style="color: #4dc7f0">Calculator</h1>
+        <div>
+            <input type="text" id="calc" class="result" >
+        </div>
+        <div class="accordion" id="accordionExample">
+        <div >
+          <p class="d-flex">
+          <button class="btn btn-light ml-auto " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 45%; ">
+            simple
+          </button>
+          <button class="btn btn-light collapsed mr-auto " type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 45%;  ">
+            Scientific
+          </button>
+        </p>
+        </div>
+        <div id="collapseOne" class="collapse collapse show" aria-labelledby="simple" data-parent="#accordionExample">
+        <div id="simple" >
+        <div >
+            <button  onclick="btnclick(this, 7)" onmouseout="btnafterclick(this)">7</button>
+            <button  onclick="btnclick(this, 8)" onmouseout="btnafterclick(this)">8</button>
+            <button  onclick="btnclick(this, 9)" onmouseout="btnafterclick(this)">9</button>
+            <button  onclick="btnclick(this, '-')" onmouseout="btnafterclick(this)">-</button>
+        </div>
+         <div id="btn2">
+            <button  onclick="btnclick(this, 4)" onmouseout="btnafterclick(this)">4</button>
+            <button  onclick="btnclick(this, 5)" onmouseout="btnafterclick(this)">5</button>
+            <button  onclick="btnclick(this, 6)" onmouseout="btnafterclick(this)">6</button>
+            <button  onclick="btnclick(this,'/' )" onmouseout="btnafterclick(this)">÷</button>
+        </div>
+         <div id="btn3">
+            <button  onclick="btnclick(this, 1)" onmouseout="btnafterclick(this)">1</button>
+            <button  onclick="btnclick(this, 2)" onmouseout="btnafterclick(this)">2</button>
+            <button  onclick="btnclick(this, 3)" onmouseout="btnafterclick(this)">3</button>
+            <button  onclick="btnclick(this, '*')" onmouseout="btnafterclick(this)">×</button>
+        </div>
+         <div id="btn4">
+            <button  onclick="btnclick(this, 0)" onmouseout="btnafterclick(this)">0</button>
+            <button  onclick="btnclick(this, '.')" onmouseout="btnafterclick(this)">.</button>
+            <button  onclick="getResult(this)" onmouseout="btnafterclick(this)">=</button>
+            <button  onclick="btnclick(this, '+')" onmouseout="btnafterclick(this)">+</button>
+        </div>
+        </div>
+        </div>
+        
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="scie" data-parent="#accordionExample">
+        <div  id="scie">
+          <div id="sbtn1">
+            <button id="b1" onclick="scientific(this, 'π')" onmouseout="btnafterclick(this)">π</button>
+            <button id="b2" onclick="scientific(this, '%')" onmouseout="btnafterclick(this)">%</button>
+            <button id="b3" onclick="scientific(this, 'ln')" onmouseout="btnafterclick(this)">ln</button>
+            <button id="b4" onclick="clearValue(this)" onmouseout="btnafterclick(this)">C</button>
+        </div>
+         <div id="sbtn2">
+            <button id="b5" onclick="scientific(this, 'sin')" onmouseout="btnafterclick(this)">sin</button>
+            <button id="b6" onclick="scientific(this, 'cos')" onmouseout="btnafterclick(this)">cos</button>
+            <button id="b7" onclick="scientific(this, 'tan')" onmouseout="btnafterclick(this)">tan</button>
+            <button id="b8" onclick="scientific(this, '√')" onmouseout="btnafterclick(this)">√</button>
+        </div>
+         <div id="sbtn3">
+            <button id="b9" onclick="scientific(this, 'x2')" onmouseout="btnafterclick(this)">x2</button>
+            <button id="b0" onclick="factorial(this)" onmouseout="btnafterclick(this)"> ! </button>
+            <button id="b01" onclick="scientific(this, 'e')" onmouseout="btnafterclick(this)">e</button>
+            <button id="b02" onclick="getResult(this)" onmouseout="btnafterclick(this)">=</button>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div >
+        
+        <button  style="width: 43%; " onclick="clearValue(this)" onmouseout="btnafterclick(this)">C</button>
+        <button  style="width: 43%; "  onclick="del(this)" onmouseout="btnafterclick(this)">del</button>
+      </div>
+    </div>  
+    </center>
+
+    <script src="assets/jquery/jquery-3.4.1.slim.min.js" ></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/popperjs/popper.min.js"></script>
+    
+    <script src="app.JS"></script>
+</body>
+</html>
